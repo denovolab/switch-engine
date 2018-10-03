@@ -1,0 +1,17 @@
+[Unit]
+Description=start livecall service
+After= network.target
+
+[Service]
+Type=forking
+#User=denovo
+WorkingDirectory=/opt/denovo/dnl_livecall/
+ExecStart=/opt/denovo/dnl_livecall/dnl_livecall
+PIDFile= /opt/denovo/dnl_livecall/run/dnl_livecall.pid
+KillMode= process
+RestartSec= 5
+TimeoutStartSec=15sec
+Restart= on-failure
+
+[Install]
+WantedBy=multi-user.target

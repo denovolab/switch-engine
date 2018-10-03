@@ -1,0 +1,16 @@
+[Unit]
+Description=Helper - start softswitch in memory database service
+After= network.target
+
+[Service]
+Type=forking
+User=denovo
+WorkingDirectory=/opt/denovo/dnl_memdb/
+ExecStart=/opt/denovo/dnl_memdb/dnl_memdb
+PIDFile= /opt/denovo/dnl_memdb/run/dnl_mem_db.pid
+KillMode= process
+TimeoutStartSec=15sec
+Restart= on-failure
+
+[Install]
+WantedBy=multi-user.target

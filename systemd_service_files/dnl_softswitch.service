@@ -1,0 +1,17 @@
+[Unit]
+Description=start softswitch service
+After= network.target
+
+[Service]
+Type=forking
+#User=denovo
+WorkingDirectory=/opt/denovo/dnl_softswitch/
+ExecStart=/opt/denovo/dnl_softswitch/dnl_softswitch
+PIDFile= /opt/denovo/dnl_softswitch/run/dnl_softswitch.pid
+KillMode= process
+TimeoutStartSec=15sec
+RestartSec= 5
+Restart= on-failure
+
+[Install]
+WantedBy=multi-user.target
